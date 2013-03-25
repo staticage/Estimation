@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Generated from NHibernate.Mapping.Attributes on 2012-10-22 13:12:43Z.-->
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Shinetech.PointEstimation.Entities.EstimationPoint, Shinetech.PointEstimation.Entities">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="native" />
+    </id>
+    <property name="Voter" />
+    <property name="Point" />
+    <property name="CreatedTime" />
+    <many-to-one name="Process" class="Shinetech.PointEstimation.Entities.EstimationProcess, Shinetech.PointEstimation.Entities" column="ProcessId" foreign-key="none" />
+  </class>
+  <class name="Shinetech.PointEstimation.Entities.EstimationProcess, Shinetech.PointEstimation.Entities">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="native" />
+    </id>
+    <property name="StartTime" />
+    <property name="FinishedTime" />
+    <property name="Status" type="Shinetech.PointEstimation.Entities.EstimationProcessStatus, Shinetech.PointEstimation.Entities" />
+    <bag name="Points" lazy="true" cascade="all">
+      <key column="ProcessId" />
+      <one-to-many class="Shinetech.PointEstimation.Entities.EstimationPoint, Shinetech.PointEstimation.Entities" />
+    </bag>
+  </class>
+</hibernate-mapping>

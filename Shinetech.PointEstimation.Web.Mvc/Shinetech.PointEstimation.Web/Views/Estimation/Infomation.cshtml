@@ -1,0 +1,36 @@
+﻿@model Shinetech.PointEstimation.Web.Mvc.ViewModels.Estimation.Infomation
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="hero-unit">
+    
+    <h1>Average:&nbsp; @Model.Average</h1>
+</div>
+<input id="processId" type="hidden" />
+<!-- Example row of columns -->
+<div class="row">
+    <div class="span12">
+        <table id="points" class="table">
+            <thead>
+                <tr>
+                    <th>Voter</th>
+                    <th>Point</th>
+                    <th>Created Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var each in Model.Points)
+                {
+                    <tr>
+                        <td><i class="icon-user"></i>&nbsp;@each.Voter</td>
+                        <td>@each.Point</td>
+                        <td>@each.CreatedTime</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>

@@ -1,0 +1,60 @@
+﻿@model Shinetech.PointEstimation.Web.ViewModels.Estimation.Index
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="@Url.Content("~/Scripts/jquery.signalR-0.5.3.js")"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var table = $("#points");
+        if (table.children("tbody").size() > 0)
+            table.show();
+
+        var connection = $.connection('@Url.Content("~/status")');
+        connection.received(function (data) {
+            var record = $.parseJSON(data);
+            table.show();
+            var tbody = table.children("tbody");
+            tbody.append("<tr><td><i class='icon-user'></i>&nbsp;" + record.Voter + "</td><td>" + record.Point + "</td><td>" + record.CreatedTime + "</td></tr>");
+        });
+        connection.start();
+    });
+</script>
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="hero-unit">
+    <h1>Point estimation process</h1>
+    <h3>Current Process Id:  @Model.ProcessId</h3>
+</div>
+<input id="processId" type="hidden" value="@Model.ProcessId" />
+<!-- Example row of columns -->
+<div class="row">
+    <div class="span12">
+        <p>
+            <a id="finish" class="btn btn-success btn-large"  href="@Url.Action("Finish", "Estimation")">Finish current process</a>
+            <a id="cancel" class="btn btn-danger btn-large"  href="@Url.Action("Cancel", "Estimation")">Cancel current process</a>
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="span12">
+        <table id="points" class="table" style="display: none">
+            <thead>
+                <tr>
+                    <th>Voter</th>
+                    <th>Point</th>
+                    <th>Created Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var each in Model.Points)
+                {
+                    <tr>
+                        <td><i class="icon-user"></i>&nbsp;@each.Voter</td>
+                        <td>@each.Point</td>
+                        <td>@each.CreatedTime.ToString("hh:mm:ss")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>

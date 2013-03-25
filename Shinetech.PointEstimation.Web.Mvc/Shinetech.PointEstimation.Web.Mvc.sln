@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shinetech.PointEstimation.Domain", "Shinetech.PointEstimation.Domain\Shinetech.PointEstimation.Domain.csproj", "{7EE75907-ED6E-4A33-8837-4466977ECE49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shinetech.PointEstimation.Web", "Shinetech.PointEstimation.Web\Shinetech.PointEstimation.Web.csproj", "{D4C9CA7D-86E9-4D0E-8C37-2A2D6A673AD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EE75907-ED6E-4A33-8837-4466977ECE49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EE75907-ED6E-4A33-8837-4466977ECE49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EE75907-ED6E-4A33-8837-4466977ECE49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EE75907-ED6E-4A33-8837-4466977ECE49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4C9CA7D-86E9-4D0E-8C37-2A2D6A673AD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4C9CA7D-86E9-4D0E-8C37-2A2D6A673AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4C9CA7D-86E9-4D0E-8C37-2A2D6A673AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4C9CA7D-86E9-4D0E-8C37-2A2D6A673AD4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

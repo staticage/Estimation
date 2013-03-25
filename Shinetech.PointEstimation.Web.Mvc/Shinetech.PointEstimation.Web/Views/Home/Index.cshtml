@@ -1,0 +1,22 @@
+﻿@model Shinetech.PointEstimation.Web.ViewModels.Home.Index
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="@Url.Content("~/Scripts/jquery.signalR-0.5.3.js")"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var connection = $.connection('@Url.Content("~/status")');
+        connection.received(function (event) {
+            $.get("@Url.Action("ProcessInfomation")", null, function (data, textStatus, jqXHR) {
+                $("#infomation").replaceWith(data);
+            }, "html");
+        });
+        connection.start();
+    });
+</script>
+
+@Html.Partial("ProcessInfomation", Model)
+<hr>
+<a id="reset" class="btn" href="@Url.Action("Reset")">Reset points</a>
+
+

@@ -1,0 +1,37 @@
+﻿@model Shinetech.PointEstimation.Web.ViewModels.Home.Index
+<div id="infomation">
+    <!-- Main hero unit for a primary marketing message or call to action -->
+    <div class="hero-unit">
+        <h3>Result is : <span>@Model.EstimationResult</span></h3>
+    </div>
+
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="span12">
+            <table id="points" class="table">
+                <thead>
+                    <tr>
+                        <th>Voter</th>
+                        <th>Point</th>
+                        <th>Created Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var each in Model.Points)
+                    {
+                        <tr>
+                            <td><i class="icon-user"></i>&nbsp;@each.Voter</td>
+                            <td>@each.Point</td>
+                            <td>@each.CreatedTime.ToString("hh:mm:ss")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+               
+        </div>
+    </div>
+</div>
